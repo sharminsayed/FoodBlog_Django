@@ -19,16 +19,15 @@ def homepage(request):
     add = Add.objects.last()
     recipes = Recipe.objects.all()
     reviews = Review.objects.all()
-    gellary=Gallery.objects.last()
-    footers=Footer.objects.all()
+    gellary = Gallery.objects.last()
+    footers = Footer.objects.all()
 
-
-    context={
-        'sliders':sliders,
-        'ad':add,
-        'recipes':recipes,
-        'reviews':reviews,
-        'gellary':gellary,
+    context = {
+        'sliders': sliders,
+        'ad': add,
+        'recipes': recipes,
+        'reviews': reviews,
+        'gellary': gellary,
         'footers':footers,
 
 
