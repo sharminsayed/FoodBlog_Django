@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Slider,Add,Recipe,Review,Gallery,Footer,Abouthero,Agallery,Fact,RecipesSection,Recipegallery,Contact,Contactgallery,Write,View
 
+from .models import Slider, Add, Recipe, Review, Gallery, Footer, Abouthero, Agallery, Fact, RecipesSection, \
+    Recipegallery, Contact, Contactgallery, Write, View, Comment
 
 # Register your models here.
 admin.site.register(Slider)
@@ -18,5 +19,4 @@ admin.site.register(Contact)
 admin.site.register(Contactgallery)
 admin.site.register(Write)
 admin.site.register(View)
-
-
+admin.site.register(Comment)

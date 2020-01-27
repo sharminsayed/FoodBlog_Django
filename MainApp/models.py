@@ -97,21 +97,33 @@ class Recipegallery(models.Model):
     image4=models.ImageField(upload_to="gallery/",null=False,blank=False)
     image5=models.ImageField(upload_to="gallery/",null=False,blank=False)
     image6=models.ImageField(upload_to="gallery/",null=False,blank=False)
-#contact section
+
+
+# about section
 class Contact(models.Model):
     address=models.TextField(null=False,blank=False)
-    phone=models.IntegerField(null=False,blank=False)
-    email=models.EmailField(null=False,blank=False)
+    phone = models.IntegerField(null=False, blank=False)
+    email = models.EmailField(null=False, blank=False)
+
 
 class Contactgallery(models.Model):
-    image1=models.ImageField(upload_to="contact/",null=False,blank=False)
-    image2=models.ImageField(upload_to="contact/",null=False,blank=False)
-    image3=models.ImageField(upload_to="contact/",null=False,blank=False)
-    image4=models.ImageField(upload_to="contact/",null=False,blank=False)
-    image5=models.ImageField(upload_to="contact/",null=False,blank=False)
-    image6=models.ImageField(upload_to="contact/",null=False,blank=False)
+    image1 = models.ImageField(upload_to="contact/", null=False, blank=False)
+    image2 = models.ImageField(upload_to="contact/", null=False, blank=False)
+    image3 = models.ImageField(upload_to="contact/", null=False, blank=False)
+    image4 = models.ImageField(upload_to="contact/", null=False, blank=False)
+    image5 = models.ImageField(upload_to="contact/", null=False, blank=False)
+    image6 = models.ImageField(upload_to="contact/", null=False, blank=False)
 
-#review
+
+# comment
+class Comment(models.Model):
+    name = models.CharField(max_length=100, null=False, blank=False)
+    email = models.EmailField(null=False, blank=False)
+    subject = models.CharField(max_length=100, null=False, blank=False)
+    messege = models.TextField(max_length=600, null=False, blank=False)
+
+
+# review
 
 
 class Write(models.Model):
