@@ -1,0 +1,72 @@
+from django.http import HttpResponse
+from django.shortcuts import render
+from  datetime import datetime
+from .models import Slider,Add,Recipe,Review,Gallery,Footer,Abouthero,Agallery,Fact,RecipesSection,Recipegallery,Contact,Contactgallery,Write,View
+
+# Create your views here.
+
+
+def homepage (request):
+    sliders=Slider.objects.all()
+    add=Add.objects.last()
+    recipes=Recipe.objects.all()
+    reviews=Review.objects.all()
+    gellary=Gallery.objects.last()
+    footers=Footer.objects.all()
+
+
+    context={
+        'sliders':sliders,
+        'ad':add,
+        'recipes':recipes,
+        'reviews':reviews,
+        'gellary':gellary,
+        'footers':footers,
+
+
+    }
+
+    return render(request,'index.html',context=context)
+
+def about(request):
+   heros=Abouthero.objects.last()
+   agellary = Agallery.objects.last()
+   fact = Fact.objects.all()
+
+
+   context={
+       'heros':heros,
+       'agellary':agellary,
+       'facts':fact,
+   }
+
+   return render(request,'about.html',context)
+
+
+def contact (request):
+    contacts=Contact.objects.all()
+    contactgallery = Contactgallery.objects.last()
+    context={
+        'contacts':contacts,
+        'contactgallery': contactgallery,
+    }
+    return  render(request,'contact.html',context)
+
+def recipes (request):
+    recipesections = RecipesSection.objects.all()
+    recipegellary = Recipegallery.objects.last()
+    context={
+        'recipesections':recipesections,
+        'recipegellary':recipegellary,
+
+    }
+    return  render(request,'recipes.html',context)
+
+def reviews (request):
+    writes=Write.objects.all()
+    view=View.objects.last()
+    context={
+        'writes':writes,
+        'view':view,
+    }
+    return  render(request,'recipe-single.html',context)

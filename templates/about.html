@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+	<!-- Hero section -->
+	<section class="page-top-section set-bg" data-setbg="{{ heros.image.url }}">
+		<div class="container">
+			<h2>About us</h2>
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+
+	<!-- Search section -->
+	<div class="search-form-section">
+		<div class="sf-warp">
+			<div class="container">
+				<form class="big-search-form">
+					<select>
+						<option>All Recipes Categories</option>
+						<option>Pizza</option>
+						<option>Salads</option>
+						<option>Desserts</option>
+						<option>Side Dishes</option>
+					</select>
+					<select>
+						<option>All Ingredients</option>
+						<option>Breakfast</option>
+						<option>Lunch</option>
+						<option>Dinner</option>
+					</select>
+					<input type="text" placeholder="Search Receipies">
+					<button class="bsf-btn">Search</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Search section end -->
+
+
+	<!-- About section -->
+	<section class="about-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 about-text">
+					<h2>About our great team</h2>
+					<p>About your dream.</p>
+					<div class="site-btn">Read more</div>
+				</div>
+				<div class="col-lg-6">
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- About section end -->
+
+
+	<!-- Facts section -->
+	<section class="facts-section">
+		<div class="facts-warp">
+			<div class="container">
+                <div class="row">
+                    {% for fact in facts %}
+                    <div class="col-lg-3 col-sm-6 fact-item">
+                        <div class="fact-icon">
+                            <img src="{{fact.image1.url}}" alt="">
+						</div>
+						<h2>{{ fact.total }}</h2>
+						<p>{{ fact.title }}</p>
+					</div>
+                     {% endfor %}
+                </div>
+            </div>
+        </div>
+	</section>
+	<!-- Facts section end -->
+
+
+	<!-- Newsletter section -->
+	<section class="newsletter-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 nl-text">
+					<h2>Subscribe to our newsletter</h2>
+					<form class="newsletter-form">
+						<input type="text" placeholder="Your E-mail">
+						<button class="site-btn">Subscribe</button>
+					</form>
+					<p>if you like please subsribe </p>
+				</div>
+				<div class="col-lg-6">
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Newsletter section end -->
+
+
+	<!-- Gallery section -->
+	<div class="gallery">
+		<div class="gallery-slider owl-carousel">
+			<div class="gs-item set-bg" data-setbg="{{ agellary.image1.url }}"></div>
+			<div class="gs-item set-bg" data-setbg="{{ agellary.image2.url }}"></div>
+			<div class="gs-item set-bg" data-setbg="{{ agellary.image3.url }}"></div>
+			<div class="gs-item set-bg" data-setbg="{{ agellary.image4.url }}"></div>
+			<div class="gs-item set-bg" data-setbg="{{ agellary.image5.url }}"></div>
+			<div class="gs-item set-bg" data-setbg="{{ agellary.image6.url }}"></div>
+		</div>
+	</div>
+	<!-- Gallery section end -->
+
+
+	<!-- Footer section  -->
+
+{% endblock %}

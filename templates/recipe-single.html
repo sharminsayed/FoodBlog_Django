@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load range %}
+{% block content %}
+
+
+
+
+
+	<!-- Hero section -->
+	<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
+		<div class="container">
+			<h2>Recipe</h2>
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+
+	<!-- Search section -->
+	<div class="search-form-section">
+		<div class="sf-warp">
+			<div class="container">
+				<form class="big-search-form">
+					<select>
+						<option>All Recipes Categories</option>
+						<option>Pizza</option>
+						<option>Salads</option>
+						<option>Desserts</option>
+						<option>Side Dishes</option>
+					</select>
+					<select>
+						<option>All Ingredients</option>
+						<option>Breakfast</option>
+						<option>Lunch</option>
+						<option>Dinner</option>
+					</select>
+					<input type="text" placeholder="Search Receipies">
+					<button class="bsf-btn">Search</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Search section end -->
+
+	
+	<!-- Recipe big view -->
+	<div class="recipe-view-section">
+		<div class="rv-warp set-bg" data-setbg="{{ view.image1.url }}"></div>
+	</div>
+
+	<!-- Recipe details section -->
+	<section class="recipe-details-section">
+		<div class="container">
+			<div class="recipe-meta">
+                {% for write in writes %}
+
+                    <div class="racipe-cata">
+					<span>"Ingrediants"</span>
+				</div>
+				<h2>{{ write.title }}</h2>
+				<div class="recipe-date">{{ write.date }}</div>
+				<div class="rating">
+                    {% for i in write.rating|range %}
+					<i class="fa fa-star"></i>
+				{% endfor %}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-5">
+					<div class="recipe-filter-warp">
+						<div class="filter-top">
+							<div class="filter-top-text">
+								<p>{{write.category}}</p>
+
+							</div>
+						</div>
+						<!-- recipe filter form -->
+						<div class="filter-form-warp">
+							<h2>Ingredients</h2>
+							<form class="filter-form">
+								<div class="check-warp">
+                                    {% for write in writes %}
+									<input type="checkbox" id="one">
+									<label for="one">{{ write.level }}</label>
+                                        {% endfor %}
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-7">
+					<ul class="recipe-info-list">
+
+                   {% for write in writes %}
+						<li>
+							<h2>{{ write.list }}</h2>
+
+						</li>
+                       </ul>
+                   {% endfor %}
+				</div>
+            </div>
+           {% endfor %}
+        </div>
+	</section>
+	<!-- Recipe details section end -->
+
+
+	<!-- Comment section -->
+	<section class="comment-section spad pt-0">
+		<div class="container">
+			<h4>Leave a comment</h4>
+			<form class="comment-form">
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" placeholder="Name">
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="E-mail">
+					</div>
+					<div class="col-md-12">
+						<input type="text" placeholder="Subject">
+						<textarea placeholder="Message"></textarea>
+						<button class="site-btn">Send</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+	<!-- Comment section -->
+
+
+	<!-- Gallery section -->
+	<div class="gallery">
+		<div class="gallery-slider owl-carousel">
+			<div class="gs-item set-bg" data-setbg="img/instagram/1.jpg"></div>
+			<div class="gs-item set-bg" data-setbg="img/instagram/2.jpg"></div>
+			<div class="gs-item set-bg" data-setbg="img/instagram/3.jpg"></div>
+			<div class="gs-item set-bg" data-setbg="img/instagram/4.jpg"></div>
+			<div class="gs-item set-bg" data-setbg="img/instagram/5.jpg"></div>
+			<div class="gs-item set-bg" data-setbg="img/instagram/6.jpg"></div>
+		</div>
+	</div>
+	<!-- Gallery section end -->
+
+
+
+{% endblock %}
+
+
+
