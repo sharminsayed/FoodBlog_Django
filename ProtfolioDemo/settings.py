@@ -25,7 +25,7 @@ SECRET_KEY = 'sw5j!_$nswuf(2&tgdpo$vdula+v6+ozk55xbt+(@&vmsnd!6o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '']
+ALLOWED_HOSTS = ['127.0.0.1', 'food-blog-sh.herokuapp.com']
 
 
 # Application definition
@@ -118,7 +118,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-BASE_URL = ''
+BASE_URL = 'food-blog-sh.herokuapp.com'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
