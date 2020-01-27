@@ -28,12 +28,11 @@ def homepage(request):
         'recipes': recipes,
         'reviews': reviews,
         'gellary': gellary,
-        'footers':footers,
-
+        'footers': footers,
 
     }
 
-    return render(request,'index.html',context=context)
+    return render(request, 'index.html', context=context)
 
 def about(request):
    heros=Abouthero.objects.last()
