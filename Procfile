@@ -1,0 +1,1 @@
+web: gunicorn ProtfolioDemo.wsgi --log--file -
