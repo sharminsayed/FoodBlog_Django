@@ -1,38 +1,33 @@
-rom
-django.shortcuts
-import render, redirect
-from .models import Slider, Add, Recipe, Review, Gallery, Footer, Abouthero, Agallery, Fact, RecipesSection, \
-    Recipegallery, Contact, Contactgallery, Write, View
-from .forms import CommentForm
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
-
+from  datetime import datetime
+from .models import Slider,Add,Recipe,Review,Gallery,Footer,Abouthero,Agallery,Fact,RecipesSection,Recipegallery,Contact,Contactgallery,Write,View,Comment
 from .forms import CommentForm
-from .models import Slider, Add, Recipe, Review, Gallery, Footer, Abouthero, Agallery, Fact, RecipesSection, \
-    Recipegallery, Contact, Contactgallery, Write, View
-
 
 # Create your views here.
 
 
-def homepage(request):
-    sliders = Slider.objects.all()
-    add = Add.objects.last()
-    recipes = Recipe.objects.all()
-    reviews = Review.objects.all()
-    gellary = Gallery.objects.last()
-    footers = Footer.objects.all()
+def homepage (request):
+    sliders=Slider.objects.all()
+    add=Add.objects.last()
+    recipes=Recipe.objects.all()
+    reviews=Review.objects.all()
+    gellary=Gallery.objects.last()
+    footers=Footer.objects.all()
 
-    context = {
-        'sliders': sliders,
-        'ad': add,
-        'recipes': recipes,
-        'reviews': reviews,
-        'gellary': gellary,
-        'footers': footers,
+
+    context={
+        'sliders':sliders,
+        'ad':add,
+        'recipes':recipes,
+        'reviews':reviews,
+        'gellary':gellary,
+        'footers':footers,
+
 
     }
 
-    return render(request, 'index.html', context=context)
+    return render(request,'index.html',context=context)
 
 def about(request):
    heros=Abouthero.objects.last()
@@ -52,15 +47,16 @@ def about(request):
 def contact (request):
     contacts = Contact.objects.all()
     contactgallery = Contactgallery.objects.last()
-    form = CommentForm()
+    form=CommentForm()
+
 
     context = {
         'contacts': contacts,
         'contactgallery': contactgallery,
-        'form': form,
+        'form':form,
     }
-    if request.method == "POST":
-        form = CommentForm(request.POST)
+    if request.method=="POST":
+        form=CommentForm(request.POST)
         # name=request.POST['name']
         # email=request.POST['email']
         # subject=request.POST['subject']
@@ -75,7 +71,8 @@ def contact (request):
             # }
         return redirect("contact")
 
-    return render(request, 'contact.html', context)
+
+    return  render(request,'contact.html',context)
 
 def recipes (request):
     recipesections = RecipesSection.objects.all()
